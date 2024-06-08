@@ -1,0 +1,6 @@
+export const ActionType = {
+  SET_PDTS: "SET_PDTS",
+  SELECTED_PDTS: "SELECTED_PDTS",
+  SELECTED_CHEF: "SELECTED_CHEF",
+  USER_DATA: "USER_DATA",
+};
