@@ -1,3 +1,4 @@
+import img from '../assets/images/abt-img.png'
 import './About.css'
 
 export default function About(){
@@ -7,7 +8,7 @@ export default function About(){
          <h1 className="heading">Why choose us?</h1>
          <div className="row">
             <div className="img">
-               <img src="images/abt-img.png" alt="" />
+               <img src={img} alt='momo' />
             </div>
             <div className="content">
                <h3>best food in the country</h3>

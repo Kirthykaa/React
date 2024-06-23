@@ -5,6 +5,30 @@ import "swiper/css/pagination";
 import "swiper/css";
 import "./Carousel.css";
 
+// Import images statically
+import noodleImg from "../assets/images/noodle.jpg";
+import salmonWrapImg from "../assets/images/salmon_wrap.jpg";
+import pizzaImg from "../assets/images/pizza.jpg";
+
+// Array of slide data
+const slides = [
+  {
+    title: "Nutri Noodles",
+    description: "Have some nutritious food, stay healthy as always!",
+    img: noodleImg,
+  },
+  {
+    title: "Salmon Wrap",
+    description: "Wrap rolls for a spicy and delicious combo.",
+    img: salmonWrapImg,
+  },
+  {
+    title: "Pizza",
+    description: "Pizza with cheese-filled and chilli flavors.",
+    img: pizzaImg,
+  },
+];
+
 export default function Carousel() {
   const navigate = useNavigate();
 
@@ -24,45 +48,21 @@ export default function Carousel() {
           }}
           modules={[Autoplay, Pagination]}
         >
-          <SwiperSlide className="swiper-slide slide">
-            <div className="content">
-              <span>our special dish</span>
-              <h3>Nutri noodles</h3>
-              <p>Have some nutritious food stay healthy!as always</p>
-              <a onClick={() => navigate("/menu")} className="btn">
-                order now
-              </a>
-            </div>
-            <div className="image">
-              <img src="images/noodle.jpg" alt="menu-item" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide slide">
-            <div className="content">
-              <span>our special dish</span>
-              <h3>Salmon wrap</h3>
-              <p>Wrap rolls for spicy lit delicious combo</p>
-              <a onClick={() => navigate("/menu")} className="btn">
-                order now
-              </a>
-            </div>
-            <div className="image">
-              <img src="images/salmon_wrap.jpg" alt="menu-item" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide slide">
-            <div className="content">
-              <span>our special dish</span>
-              <h3>Pizza</h3>
-              <p>pizzza with cheese filled and chillies flavour </p>
-              <a onClick={() => navigate("/menu")} className="btn">
-                order now
-              </a>
-            </div>
-            <div className="image">
-              <img src="images/pizza.jpg" alt="menu-item" />
-            </div>
-          </SwiperSlide>
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index} className="swiper-slide slide">
+              <div className="content">
+                <span>Our Special Dish</span>
+                <h3>{slide.title}</h3>
+                <p>{slide.description}</p>
+                <a onClick={() => navigate("/menu")} className="btn">
+                  Order Now
+                </a>
+              </div>
+              <div className="image">
+                <img src={slide.img} alt={slide.title} />
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>

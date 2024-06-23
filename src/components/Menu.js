@@ -13,6 +13,8 @@ function Menu() {
   const [sltData, setSltData] = useState({});
   const dispatch = useDispatch();
 
+  console.log('menuData', menuData)
+
   const onMenuAddHandler = (e, param) => {
     if (param.count < 25) {
       setMenuItem((prevState) => {
@@ -66,7 +68,7 @@ function Menu() {
                 return (
                   <div key={index} className="menu-box">
                     <div className="image">
-                      <img src={item.img} alt="" />
+                      <img src={require(`../assets/images/${item.img.split('/').pop()}`)} alt="" />
                     </div>
                     <div className="content">
                       <div>
